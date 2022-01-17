@@ -22,3 +22,11 @@ func TestCheckValidityTrue(t *testing.T) {
 			" actual string true")
 	}
 }
+func TestCheckValiditywithEmpty(t *testing.T) {
+	actualResult := testValidity("")
+	expectedResult := false
+	if actualResult != expectedResult {
+		t.Errorf("Expected result false is not same as" +
+			" actual string true")
+	}
+}
