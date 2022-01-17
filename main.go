@@ -65,7 +65,8 @@ func main() {
 	if !ArgumentsValidation(args) { // calling validation to check the number of arguments
 		os.Exit(0) // return from main if number of arguments are not valid
 	}
-	fmt.Println(testValidity("23-ab-48-caba-56-haha"))
-	fmt.Println(avergeNumber("23-ab-48-caba-56-haha"))
+	fmt.Println(testValidity(args[1]))
+	fmt.Println(avergeNumber(args[1]))
+	fmt.Println(wholeStory(args[1]))
 
 }
