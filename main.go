@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"os"
 	"regexp"
 	"strconv"
@@ -52,6 +53,42 @@ func wholeStory(str string) string { //function to return all the words present 
 	}
 	return "-1"
 }
+func storyStats(str string) (string, string, string) {
+	if testValidity(str) {
+		arr := strings.Split(str, "-")
+		sum := 0
+		// var strLens []int
+		longestlen := 0
+		longIdx := 0
+		shortlen := len(arr[1])
+		shortIdx := 1
+		for alphaIt := 1; alphaIt < len(arr); alphaIt += 2 {
+			sum += len(arr[alphaIt])
+			// strLens = append(strLens, len(arr[alphaIt]))
+			if longestlen < len(arr[alphaIt]) {
+				longestlen = len(arr[alphaIt])
+				longIdx = alphaIt
+			}
+			if shortlen > len(arr[alphaIt]) {
+				shortlen = len(arr[alphaIt])
+				shortIdx = alphaIt
+			}
+		}
+		averageLen := float64(sum) / float64(len(arr)/2)
+		averageStrs := ""
+		for alphaIt := 1; alphaIt < len(arr); alphaIt += 2 {
+			var averageC int = int(math.Ceil(averageLen))
+			var averageF int = int(math.Floor(averageLen))
+			if averageC == len(arr[alphaIt]) || averageF == len(arr[alphaIt]) {
+				averageStrs += arr[alphaIt]
+				averageStrs += " "
+			}
+		}
+
+		return arr[shortIdx], arr[longIdx], averageStrs[0 : len(averageStrs)-1]
+	}
+	return "-1", "-1", "-1"
+}
 
 func ArgumentsValidation(args []string) bool { // argument validation function
 	if len(args) != 2 { // must give an argument while running the exe
@@ -68,5 +105,6 @@ func main() {
 	fmt.Println(testValidity(args[1]))
 	fmt.Println(avergeNumber(args[1]))
 	fmt.Println(wholeStory(args[1]))
+	fmt.Println(storyStats(args[1]))
 
 }
