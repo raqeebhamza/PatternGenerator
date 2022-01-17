@@ -61,3 +61,11 @@ func TestStoryStats(t *testing.T) {
 			" averageStr string true")
 	}
 }
+func TestGenerateRight(t *testing.T) {
+	actualResult := testValidity(generate(true))
+	expectedResult := true
+	if actualResult != expectedResult {
+		t.Errorf("Expected result false is not same as" +
+			" actual result true")
+	}
+}
