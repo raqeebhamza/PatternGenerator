@@ -30,3 +30,11 @@ func TestCheckValiditywithEmpty(t *testing.T) {
 			" actual string true")
 	}
 }
+func TestAverageNumber(t *testing.T) {
+	actualResult := avergeNumber("23-ab-48-caba-56-haha")
+	expectedResult := 42
+	if actualResult != expectedResult {
+		t.Errorf("Expected result false is not same as" +
+			" actual string true")
+	}
+}
