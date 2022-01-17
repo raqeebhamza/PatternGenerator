@@ -46,3 +46,18 @@ func TestWholeStory(t *testing.T) {
 			" actual string true")
 	}
 }
+
+func TestStoryStats(t *testing.T) {
+	shortest, longest, averageStrs := storyStats("23-ab-48-caba-56-haha")
+	expectedResult := [3]string{"ab", "caba", "caba haha"}
+	if shortest != expectedResult[0] {
+		t.Errorf("Expected result false is not same as" +
+			" shortest string true")
+	} else if longest != expectedResult[1] {
+		t.Errorf("Expected result false is not same as" +
+			" longest string true")
+	} else if averageStrs != expectedResult[2] {
+		t.Errorf("Expected result false is not same as" +
+			" averageStr string true")
+	}
+}
