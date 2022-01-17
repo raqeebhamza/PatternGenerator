@@ -1,0 +1,15 @@
+// test function
+package main
+
+import (
+	"testing"
+)
+
+func TestCheckValidity(t *testing.T) {
+	actualResult := testValidity("335-cuCZWmIW-cuCZWmIW-69-cuCZWmIW-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-XXbg-XXbg-261-uNoEk-uNoEk-262-uNoEk-mOiZBr-152-mOiZBr-mOiZBr-152-mOiZBr-mOiZBr")
+	expectedResult := false
+	if actualResult != expectedResult {
+		t.Errorf("Expected result false is not same as" +
+			" actual string true")
+	}
+}
