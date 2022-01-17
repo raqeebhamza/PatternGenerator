@@ -27,17 +27,17 @@ func testValidity(str string) bool { // validating the string given by the user
 	return true // return true if everthing was with flow
 }
 
-func avergeNumber(str string) int {
-	if testValidity(str) {
-		arr := strings.Split(str, "-")
+func avergeNumber(str string) int { //function to get the average of the numbers
+	if testValidity(str) { //checking the validaty of the string
+		arr := strings.Split(str, "-") // splting the string to an array
 		sum := 0
-		for numIt := 0; numIt < len(arr); numIt += 2 {
-			num, _ := strconv.Atoi(arr[numIt])
-			sum += num
+		for numIt := 0; numIt < len(arr); numIt += 2 { // loop over the numbers
+			num, _ := strconv.Atoi(arr[numIt]) // converting string to number
+			sum += num                         // calculating sum
 		}
-		return sum / (len(arr) / 2)
+		return sum / (len(arr) / 2) // returning the average
 	}
-	return -1
+	return -1 // return -1 if string is not validate
 }
 
 func ArgumentsValidation(args []string) bool { // argument validation function
