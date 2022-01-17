@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 	"math"
+	"math/rand"
 	"os"
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func testValidity(str string) bool { // validating the string given by the user
@@ -89,7 +91,23 @@ func storyStats(str string) (string, string, string) {
 	}
 	return "-1", "-1", "-1"
 }
+func getRandom(min int, max int) int {
+	rand.Seed(time.Now().UnixNano())
+	num := rand.Intn(max-min+1) + min
+	return num
+}
+func getEvenRand(min int, max int) int {
+	num := getRandom(min, max)
+	for num%2 != 0 {
+		num = rand.Intn(max-min+1) + min
+	}
+	return num
+}
+func generate(flag bool) string {
 
+	blocks := getEvenRand(1, 20)
+
+}
 func ArgumentsValidation(args []string) bool { // argument validation function
 	if len(args) != 2 { // must give an argument while running the exe
 		fmt.Println("Invalid Number of Arguments!")
