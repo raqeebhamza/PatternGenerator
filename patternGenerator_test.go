@@ -13,3 +13,12 @@ func TestCheckValidity(t *testing.T) {
 			" actual string true")
 	}
 }
+
+func TestCheckValidityTrue(t *testing.T) {
+	actualResult := testValidity("23-ab-48-caba-56-haha")
+	expectedResult := true
+	if actualResult != expectedResult {
+		t.Errorf("Expected result false is not same as" +
+			" actual string true")
+	}
+}
