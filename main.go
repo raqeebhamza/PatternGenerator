@@ -91,24 +91,24 @@ func storyStats(str string) (string, string, string) {
 	}
 	return "-1", "-1", "-1"
 }
-func getRandom(min int, max int) int {
+func getRandom(min int, max int) int { // a pure random number generator function
 	rand.Seed(time.Now().UnixNano())
 	num := rand.Intn(max-min+1) + min
 	return num
 }
-func getEvenRand(min int, max int) int {
+func getEvenRand(min int, max int) int { // a random number generator funcitonw which will generate on even numbers
 	num := getRandom(min, max)
 	for num%2 != 0 {
 		num = rand.Intn(max-min+1) + min
 	}
 	return num
 }
-func generateNumber(min int, max int) string {
+func generateNumber(min int, max int) string { // generate the number as a string .
 	num := getRandom(min, max)
 	numstr := strconv.Itoa(num)
 	return numstr
 }
-func RandString(n int) string {
+func RandString(n int) string { // generate random string for the generater function
 	var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	b := make([]rune, n)
 	for i := range b {
@@ -116,25 +116,25 @@ func RandString(n int) string {
 	}
 	return string(b)
 }
-func generateString() string {
+func generateString() string { // will  generate string of specifc length.
 	strLen := getRandom(2, 10)
 	return RandString(strLen)
 }
 
-func generate(flag bool) string {
-	blocks := getEvenRand(1, 20)
+func generate(flag bool) string { // our main generator function for generating the string .
+	blocks := getEvenRand(1, 20) // initial step get the random number of blocks
 	response := ""
-	for i := 0; i < blocks; i++ {
-		response += generateNumber(10, 500)
+	for i := 0; i < blocks; i++ { // loop over and create each block
+		response += generateNumber(10, 500) // random number as strings
 		response += "-"
-		if !flag {
+		if !flag { // false flag means need to genrate invalidate string
 			response += generateString()
 			response += "-"
 		}
-		response += generateString()
+		response += generateString() // generating alphabatic part of the string
 		response += "-"
 	}
-	response = response[0 : len(response)-1]
+	response = response[0 : len(response)-1] // return the generated string .
 	return response
 
 }
