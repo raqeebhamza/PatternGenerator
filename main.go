@@ -92,7 +92,6 @@ func storyStats(str string) (string, string, string) {
 	return "-1", "-1", "-1"
 }
 func getRandom(min int, max int) int { // a pure random number generator function
-	rand.Seed(time.Now().UnixNano())
 	num := rand.Intn(max-min+1) + min
 	return num
 }
@@ -122,6 +121,7 @@ func generateString() string { // will  generate string of specifc length.
 }
 
 func generate(flag bool) string { // our main generator function for generating the string .
+	rand.Seed(time.Now().UnixNano())
 	blocks := getEvenRand(1, 20) // initial step get the random number of blocks
 	response := ""
 	for i := 0; i < blocks; i++ { // loop over and create each block
