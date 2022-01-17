@@ -26,6 +26,20 @@ func testValidity(str string) bool { // validating the string given by the user
 	}
 	return true // return true if everthing was with flow
 }
+
+func avergeNumber(str string) int {
+	if testValidity(str) {
+		arr := strings.Split(str, "-")
+		sum := 0
+		for numIt := 0; numIt < len(arr); numIt += 2 {
+			num, _ := strconv.Atoi(arr[numIt])
+			sum += num
+		}
+		return sum / (len(arr) / 2)
+	}
+	return -1
+}
+
 func ArgumentsValidation(args []string) bool { // argument validation function
 	if len(args) != 2 { // must give an argument while running the exe
 		fmt.Println("Invalid Number of Arguments!")
@@ -39,5 +53,6 @@ func main() {
 		os.Exit(0) // return from main if number of arguments are not valid
 	}
 	fmt.Println(testValidity("23-ab-48-caba-56-haha"))
+	fmt.Println(avergeNumber("23-ab-48-caba-56-haha"))
 
 }
