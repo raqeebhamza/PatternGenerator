@@ -48,7 +48,7 @@ func wholeStory(str string) string { //function to return all the words present 
 			words += arr[alphaIt] // creating a new string and use concatination
 			words += " "
 		}
-		return words[0 : len(words)-1] // returning
+		return words[0 : len(words)-1] // returning the words
 	}
 	return "-1"
 }

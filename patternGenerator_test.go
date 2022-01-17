@@ -38,3 +38,11 @@ func TestAverageNumber(t *testing.T) {
 			" actual string true")
 	}
 }
+func TestWholeStory(t *testing.T) {
+	actualResult := wholeStory("23-ab-48-caba-56-haha")
+	expectedResult := "ab caba haha"
+	if actualResult != expectedResult {
+		t.Errorf("Expected result false is not same as" +
+			" actual string true")
+	}
+}
