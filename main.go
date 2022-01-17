@@ -103,10 +103,21 @@ func getEvenRand(min int, max int) int {
 	}
 	return num
 }
+func generateNumber(min int, max int) string {
+	num := getRandom(min, max)
+	numstr := strconv.Itoa(num)
+	return numstr
+}
+
 func generate(flag bool) string {
 
 	blocks := getEvenRand(1, 20)
-
+	response := ""
+	for i := 0; i < blocks; i++ {
+		response += generateNumber(10, 500)
+		response += "-"
+	}
+	return ""
 }
 func ArgumentsValidation(args []string) bool { // argument validation function
 	if len(args) != 2 { // must give an argument while running the exe
