@@ -40,6 +40,19 @@ func avergeNumber(str string) int { //function to get the average of the numbers
 	return -1 // return -1 if string is not validate
 }
 
+func wholeStory(str string) string {
+	if testValidity(str) {
+		arr := strings.Split(str, "-")
+		words := ""
+		for alphaIt := 1; alphaIt < len(arr); alphaIt += 2 {
+			words += arr[alphaIt]
+			words += " "
+		}
+		return words[0 : len(words)-1]
+	}
+	return "-1"
+}
+
 func ArgumentsValidation(args []string) bool { // argument validation function
 	if len(args) != 2 { // must give an argument while running the exe
 		fmt.Println("Invalid Number of Arguments!")
