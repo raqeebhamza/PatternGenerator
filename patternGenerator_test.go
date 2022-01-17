@@ -69,3 +69,11 @@ func TestGenerateRight(t *testing.T) {
 			" actual result true")
 	}
 }
+func TestGenerateWrong(t *testing.T) {
+	actualResult := testValidity(generate(false))
+	expectedResult := false
+	if actualResult != expectedResult {
+		t.Errorf("Expected result false is not same as" +
+			" actual result true")
+	}
+}
