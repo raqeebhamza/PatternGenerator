@@ -40,15 +40,15 @@ func avergeNumber(str string) int { //function to get the average of the numbers
 	return -1 // return -1 if string is not validate
 }
 
-func wholeStory(str string) string {
-	if testValidity(str) {
-		arr := strings.Split(str, "-")
+func wholeStory(str string) string { //function to return all the words present the string
+	if testValidity(str) { // checking the validity of the string
+		arr := strings.Split(str, "-") // split the string by dashes present in the string
 		words := ""
 		for alphaIt := 1; alphaIt < len(arr); alphaIt += 2 {
-			words += arr[alphaIt]
+			words += arr[alphaIt] // creating a new string and use concatination
 			words += " "
 		}
-		return words[0 : len(words)-1]
+		return words[0 : len(words)-1] // returning
 	}
 	return "-1"
 }
