@@ -54,38 +54,38 @@ func wholeStory(str string) string { //function to return all the words present 
 	return "-1"
 }
 func storyStats(str string) (string, string, string) {
-	if testValidity(str) {
-		arr := strings.Split(str, "-")
+	if testValidity(str) { // checking validity
+		arr := strings.Split(str, "-") // spliting
 		sum := 0
 		// var strLens []int
-		longestlen := 0
-		longIdx := 0
-		shortlen := len(arr[1])
-		shortIdx := 1
-		for alphaIt := 1; alphaIt < len(arr); alphaIt += 2 {
-			sum += len(arr[alphaIt])
+		longestlen := 0                                      //storing longest length  string
+		longIdx := 0                                         // index of the longest string
+		shortlen := len(arr[1])                              // initial string
+		shortIdx := 1                                        // initial index
+		for alphaIt := 1; alphaIt < len(arr); alphaIt += 2 { // loop over all the words
+			sum += len(arr[alphaIt]) //calculating sum
 			// strLens = append(strLens, len(arr[alphaIt]))
-			if longestlen < len(arr[alphaIt]) {
-				longestlen = len(arr[alphaIt])
-				longIdx = alphaIt
+			if longestlen < len(arr[alphaIt]) { // condition to get the longest string
+				longestlen = len(arr[alphaIt]) //
+				longIdx = alphaIt              // setting the index
 			}
-			if shortlen > len(arr[alphaIt]) {
+			if shortlen > len(arr[alphaIt]) { // condition for the shortest string
 				shortlen = len(arr[alphaIt])
-				shortIdx = alphaIt
+				shortIdx = alphaIt // setting the shortest
 			}
 		}
-		averageLen := float64(sum) / float64(len(arr)/2)
+		averageLen := float64(sum) / float64(len(arr)/2) // getting average length
 		averageStrs := ""
 		for alphaIt := 1; alphaIt < len(arr); alphaIt += 2 {
 			var averageC int = int(math.Ceil(averageLen))
 			var averageF int = int(math.Floor(averageLen))
-			if averageC == len(arr[alphaIt]) || averageF == len(arr[alphaIt]) {
+			if averageC == len(arr[alphaIt]) || averageF == len(arr[alphaIt]) { // matching the round up and down for the average
 				averageStrs += arr[alphaIt]
 				averageStrs += " "
 			}
 		}
 
-		return arr[shortIdx], arr[longIdx], averageStrs[0 : len(averageStrs)-1]
+		return arr[shortIdx], arr[longIdx], averageStrs[0 : len(averageStrs)-1] // return the results
 	}
 	return "-1", "-1", "-1"
 }
