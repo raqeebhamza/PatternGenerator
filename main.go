@@ -108,16 +108,35 @@ func generateNumber(min int, max int) string {
 	numstr := strconv.Itoa(num)
 	return numstr
 }
+func RandString(n int) string {
+	var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+	b := make([]rune, n)
+	for i := range b {
+		b[i] = letterRunes[rand.Intn(len(letterRunes))]
+	}
+	return string(b)
+}
+func generateString() string {
+	strLen := getRandom(2, 10)
+	return RandString(strLen)
+}
 
 func generate(flag bool) string {
-
 	blocks := getEvenRand(1, 20)
 	response := ""
 	for i := 0; i < blocks; i++ {
 		response += generateNumber(10, 500)
 		response += "-"
+		if !flag {
+			response += generateString()
+			response += "-"
+		}
+		response += generateString()
+		response += "-"
 	}
-	return ""
+	response = response[0 : len(response)-1]
+	return response
+
 }
 func ArgumentsValidation(args []string) bool { // argument validation function
 	if len(args) != 2 { // must give an argument while running the exe
@@ -135,5 +154,6 @@ func main() {
 	fmt.Println(avergeNumber(args[1]))
 	fmt.Println(wholeStory(args[1]))
 	fmt.Println(storyStats(args[1]))
+	fmt.Println(generate(true))
 
 }
